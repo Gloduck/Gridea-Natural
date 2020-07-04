@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <%- include('./includes/head', { siteTitle: `归档 | ${themeConfig.siteName}` }) %>
+  <%- include('./includes/cache') %>
+</head>
+
+<body class="home blog custom-background round-avatars">
+  <%- include('./includes/header') %>
+  <div id="main" class="content">
+    <div class="container">
+      <section class="post_content" itemscope="" itemtype="http://schema.org/Article">
+        <header class="post_header">
+          <h1 class="post_title">归档</h1>
+        </header>
+        <div class="post-Archive">
+          <!-- 时间线开始 -->
+          <% let years = []; posts.forEach((item) => { const year = item.date.substring(0, 4); if (!years.includes(year)) { years.push(year); } }); %>
+          <% years.forEach(function(year) { %>
+            <div class="archive-title">
+              <h3><%- year %></h3>
+              <div class="archives">
+                <% posts.forEach(function(post) { %>
+                  <%if (post.date.indexOf(year) !== -1) { %>
+                  <div class="brick">
+                    <a href="<%= post.link %>"><span class="time"><%= post.dateFormat %></span><%= post.title %></a>
+                  </div>
+                  <% } %>
+                  <% }); %>
+              </div>
+              <% }); %>
+            </div>
+          <!-- 时间线结束 -->
+        </div>
+      </section>
+    </div>
+  </div>
+  <%- include('./includes/footer') %>
+
+</body>
+
+</html>

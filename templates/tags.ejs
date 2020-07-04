@@ -1,0 +1,25 @@
+<html>
+
+<head>
+    <%- include('./includes/head', { siteTitle: `标签 | ${themeConfig.siteName}` }) %>
+    <%- include('./includes/cache') %>
+</head>
+
+<body class="home blog custom-background round-avatars">
+    <%- include('./includes/header') %> 
+    <div id="main" class="content">
+        <div class="container text-center">
+            
+          <% tags.forEach((tag) => { %>
+            <a class="tag-<%= ['yellow', 'green', 'blue', 'pink','gray',][Math.floor(Math.random()*5)] %>" href="<%= tag.link %>">
+                <%= tag.name %>
+            </a>
+            <% }); %>
+
+        </div>
+    </div>
+    <%- include('./includes/footer') %> 
+
+</body>
+
+</html>

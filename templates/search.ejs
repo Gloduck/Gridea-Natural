@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./includes/head', { siteTitle: themeConfig.siteName }) %>
+    <script src="<%= themeConfig.domain %>/media/gridea-search/fuse.basic.min.js"></script>
+    <script src="<%= themeConfig.domain %>/media/gridea-search/ejs.min.js"></script>
+    <script src="<%= themeConfig.domain %>/media/gridea-search/gridea-search.js"></script>
+    <script src="<%= themeConfig.domain %>/media/gridea-search/result-template.ejs" type="text/ejs"></script>
+</head>
+
+
+
+<body class="home blog custom-background round-avatars">
+    <%- include('./includes/header') %>
+    <div id="main" class="content">
+        <div class="container">
+            <article itemscope="itemscope">
+                <div class="main animated">
+                    <div id="gridea-search-result" data-update="<%= site.utils.now %>">
+                        <div class="searching">搜索中......</div>
+                        <div class="no-result" style="display:none;text-align: center;">未搜索到相关文章</div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+    
+    <%- include('./includes/footer') %>
+
+</body>
+
+
+</html>

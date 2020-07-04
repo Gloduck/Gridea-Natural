@@ -1,0 +1,25 @@
+<html>
+
+<head>
+  <%- include('./includes/head', { siteTitle: `${tag.name} | ${themeConfig.siteName}` }) %>
+  <%- include('./includes/cache') %>
+</head>
+
+<body class="home blog custom-background round-avatars">
+  <%- include('./includes/header') %>
+  <div id="main" class="content">
+    <div class="container">
+      <section class="post_content">
+        <h3 class="catalog-title yellow-under" style="margin-bottom: 5%;">当前标签：<%= tag.name %> </h3>
+        <%- include('./includes/post-list-normal',{currentTag:`${tag.name}`})  %>
+        <%- include('./includes/pagination',{currentTag:`${tag.name}`})  %>
+
+      </section>
+
+    </div>
+  </div>
+  <%- include('./includes/footer') %>
+
+</body>
+
+</html>
