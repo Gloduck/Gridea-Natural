@@ -1,0 +1,108 @@
+<% let domain = themeConfig.domain;%>
+<% posts.forEach(function(post) { %>
+<% if(Math.random() >= 0.5){ %>
+<div class="post post-layout-list shadow" data-aos="fade-up">
+    <div class="postnormal review ">
+        <div class="post-container review-item">
+            <div class="row review-item-wrapper">
+                <!-- 文章列表小图开始 -->
+                <div class="col-sm-3">
+                    <a rel="nofollow" href="<%= post.link %>">
+                        <% if (themeConfig.showFeatureImage && post.feature) { %>
+                        <div class="review-item-img" style="background-image: url(<%= post.feature %>);"></div>
+                        <% }else if(site.customConfig.randomImg){ %>
+                        <div class="review-item-img"
+                            style="background-image: url(<%= site.customConfig.randomImg %>?v=<%= Math.random() %>);">
+                        </div>
+                        <% }else if(site.customConfig.feature && site.customConfig.featurelength){ %>
+                        <div class="review-item-img"
+                            style="background-image: url(<%= site.customConfig.feature[Math.floor(Math.random()*site.customConfig.featurelength)].autoimg %>);">
+                        </div>
+                        <%} else { %>
+                            <div class="review-item-img"
+                            style="background-image: url(<%= themeConfig.domain %>/media/images/post-list.jpg);">
+                        </div>
+                        <% } %>
+                    </a>
+                </div>
+                <!-- 文章列表小图结束 -->
+                <div class="col-sm-9 flex-xs-middle">
+                    <div class="review-item-title">
+                        <a href="<%= post.link %>" rel="bookmark"><%= post.title %></a>
+                    </div>
+                    <div class="review-item-creator"><b>发布日期：</b><%= post.dateFormat %></div>
+                    <!-- <span class="review-item-info"><b>总浏览量：</b>1600 reads</span> -->
+                    <!-- Tag -->
+                    <% post.tags.forEach(function(tag) { %>
+                    <a href="<%= tag.link %>" class="autotag"><%= tag.name %></a>
+                    <% }); %>
+
+                </div>
+            </div>
+            <!-- 文章列表大图开始 -->
+            <div class="review-bg-wrapper">
+                <% if (themeConfig.showFeatureImage && post.feature) { %>
+                <div class="bg-blur" style="background-image: url(<%= post.feature %>);"></div>
+                <% }else if(site.customConfig.randomImg){ %>
+                <div class="bg-blur"
+                    style="background-image: url(<%= site.customConfig.randomImg %>?v=<%= Math.random() %>);">
+                </div>
+                <% }else if(site.customConfig.feature && site.customConfig.featurelength){ %>
+                <div class="bg-blur"
+                    style="background-image: url(<%= site.customConfig.feature[Math.floor(Math.random()*site.customConfig.featurelength)].autoimg %>);">
+                </div>
+                <%} else { %>
+                <div class="bg-blur"
+                    style="background-image: url(<%= themeConfig.domain %>/media/images/post-list.jpg);"></div>
+                <% } %>
+            </div>
+            <!-- 文章列表大图结束 -->
+        </div>
+        <div class="post-container">
+            <% if (post.abstract) {%>
+            <div class="entry-content"><%= post.abstract %></div>
+            <%}else{ %>
+            <div class="entry-content"><%= post.content.replace(/<[^>]+>/g,"").substring(0,200)+'...' %></div>
+            <%} %>
+            <div class="post-footer">
+                <a class="gaz-btn primary" href="<%= post.link %>">READ MORE</a>
+                <span class="total-comments-on-post pull-right"><a href=""><span class="valine-comment-count"
+                            data-xid="<%= post.link.replace(domain,'') %>"></span>
+                        Comments</a></span> </div>
+        </div>
+    </div>
+</div>
+<% } else { %>
+<div class="post post-layout-list aos-init aos-animate shadow" data-aos="fade-up">
+    <div class="status_list_item icon_kyubo">
+        <% if (themeConfig.showFeatureImage && post.feature) { %>
+        <div class="status_user" style="background-image: url(<%= post.feature %>);">
+
+            <% }else if(site.customConfig.randomImg){ %>
+            <div class="status_user"
+                style="background-image: url(<%= site.customConfig.randomImg %>?v=<%= Math.random() %>);">
+                <% }else if(site.customConfig.feature && site.customConfig.featurelength){ %>
+                <div class="status_user"
+                    style="background-image: url(<%= site.customConfig.feature[Math.floor(Math.random()*site.customConfig.featurelength)].autoimg %>);">
+                    <%} else { %>
+                    <div class="status_user"
+                        style="background-image: url(<%= themeConfig.domain %>/media/images/post-list.jpg);">
+                        <% } %>
+                        <div class="status_section">
+                            <a href="<%= post.link %>" class="status_btn"><%= post.title %></a>
+                            <h5 class="review-item-creator"><b>发布日期：</b><%= post.dateFormat %></h5>
+                            <% post.tags.forEach(function(tag) { %>
+                            <a href="<%= tag.link %>" class="autotag"><%= tag.name %></a>
+                            <% }); %>
+                            <% if (post.abstract) {%>
+                            <p class="section_p"><%= post.abstract %></p>
+                            <%}else{ %>
+                            <p class="section_p"><%= post.content.replace(/<[^>]+>/g,"").substring(0,200)+'...' %></p>
+                            <%} %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+            <% }); %>
+            <%- include('./valine') %>

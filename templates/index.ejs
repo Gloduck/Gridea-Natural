@@ -1,0 +1,32 @@
+<html>
+
+<head>
+    <%- include('./includes/head', { siteTitle: themeConfig.siteName }) %>
+    <%- include('./includes/cache') %>
+</head>
+
+<body class="home blog custom-background round-avatars">
+    <%- include('./includes/header') %>
+    <div id="main" class="content">
+        <div class="container">
+            <!--  -->
+            <%- include('./includes/notice') %>
+
+            <article itemscope="itemscope">
+                <% if(site.customConfig.style === "normal") {%>
+                <%- include('./includes/post-list-normal') %>
+                <% } else if(site.customConfig.style === "mix") { %>
+                <%- include('./includes/post-list-mix') %>
+                <% } else { %>
+                    <%- include('./includes/post-list-default') %>
+                <% } %> 
+                <%- include('./includes/pagination') %>
+            </article>
+        </div>
+    </div>
+
+    <%- include('./includes/footer') %>
+
+</body>
+
+</html>

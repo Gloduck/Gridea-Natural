@@ -1,0 +1,74 @@
+<html>
+
+<head>
+    <%- include('./includes/head', { siteTitle: `友链 | ${themeConfig.siteName}` }) %>
+    <%- include('./includes/cache') %>
+</head>
+
+<body class="home blog custom-background round-avatars">
+    <%- include('./includes/header') %>
+
+    <div id="main" class="content">
+        <div class="container">
+            <style>
+                body.custom-background {
+                    background: #fff
+                }
+
+                .container {
+                    padding: 10px 0px;
+                }
+            </style>
+            <section class="post_content">
+                <div class="links">
+                    <h3 class="catalog-title">我的邻居</h3>
+                    <div class="catalog-description"></div>
+                    <!-- <div class="catalog-share">4 items in collection</div> -->
+                    <!-- 提示开始 -->
+                    <% if (site.customConfig.friendsnotice) { %>
+                    <div class="catalog-share"><%- site.customConfig.friendsnotice %></div>
+                    <% } %>
+                    <!-- 提示结束 -->
+
+                    <!-- 友链开始 -->
+                    <div class="userItems">
+                        <% if (site.customConfig.friends) { %>
+                        <% site.customConfig.friends.forEach(function(friend) { %>
+                        <div class="userItem">
+                            <div class="userItem--inner">
+                                <div class="userItem-content">
+                                    <!-- 如果没有设置友链图片展示默认网站图片 -->
+                                    <% if (friend.siteLogo) { %>
+                                    <a href="<%= friend.siteLink %>"><img src="<%= friend.siteLogo %>"
+                                            class="avatar photo" height="64" width="64"></a>
+                                    <% } else { %>
+                                    <a href="<%= friend.siteLink %>"><img
+                                            src="<%= themeConfig.domain %>/media/images/no-image.png"
+                                            class="avatar photo" height="64" width="64"></a>
+                                    <% } %>
+                                    <div class="userItem-name">
+                                        <a class="link link--primary" href="<%= friend.siteLink %>"
+                                            target="_blank"><%= friend.siteName %></a>
+                                    </div>
+                                    <div class="blog-description">
+                                        <%= friend.description %>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <% }); %>
+                        <% } %>
+                        <!-- 友链结束 -->
+
+                    </div>
+                </div>
+            </section>
+            <%- include('./includes/comment') %> 
+        </div>
+    </div>
+
+    <%- include('./includes/footer') %>
+
+</body>
+
+</html>
