@@ -1,0 +1,249 @@
+{
+    "name": "Natural",
+    "version": "1.0.0",
+    "author": "萌新",
+    "repository": "https://github.com/1035311527/gridea-natural",
+    "customConfig": [
+        {
+            "name": "github",
+            "label": "Github",
+            "group": "社交",
+            "value": "",
+            "type": "input",
+            "note": "链接地址"
+        },
+        {
+            "name": "twitter",
+            "label": "Twitter",
+            "group": "社交",
+            "value": "",
+            "type": "input",
+            "note": "链接地址"
+        },
+        {
+            "name": "weibo",
+            "label": "微博",
+            "group": "社交",
+            "value": "",
+            "type": "input",
+            "note": "链接地址"
+        },
+        {
+            "name": "facebook",
+            "label": "Facebook",
+            "group": "社交",
+            "value": "",
+            "type": "input",
+            "note": "链接地址"
+        },
+        {
+            "name": "wechat",
+            "label": "微信",
+            "group": "社交",
+            "value": "",
+            "type": "input",
+            "note": "链接地址"
+        },
+        {
+            "name": "wechatImg",
+            "label": "微信二维码",
+            "group": "社交",
+            "value": "",
+            "type": "input",
+            "note": "输入微信二维码地址"
+        },
+        {
+            "name": "qq",
+            "label": "QQ",
+            "group": "社交",
+            "value": "",
+            "type": "input",
+            "note": "链接地址"
+        },
+        {
+            "name": "ga",
+            "label": "跟踪 ID",
+            "group": "谷歌统计",
+            "value": "",
+            "type": "input",
+            "note": "UA-xxxxxxxxx-x"
+        },
+        {
+            "name": "valineID",
+            "label": "appId",
+            "group": "Valine 评论配置",
+            "value": "",
+            "type": "input",
+            "note": "请输入appId，如果想启用Valine必须关闭其他两个自带评论系统"
+        },
+        {
+            "name": "valineKey",
+            "label": "appKey",
+            "group": "Valine 评论配置",
+            "value": "",
+            "type": "input",
+            "note": "请输入appKey"
+        },
+        {
+            "name": "description",
+            "label": "网站描述",
+            "group": "基本设置",
+            "value": "",
+            "type": "input",
+            "note": "网站的描述信息"
+        },
+        {
+            "name": "keywords",
+            "label": "关键词",
+            "group": "基本设置",
+            "value": "",
+            "type": "input",
+            "note": "网站的关键词，多个使用','隔开"
+        },
+        {
+            "name": "notice",
+            "label": "站点公告",
+            "group": "基本设置",
+            "value": "",
+            "type": "input",
+            "note": "输入站点公告，将展示在列表页"
+        },
+        {
+            "name": "noticeImg",
+            "label": "站点公告图片",
+            "group": "基本设置",
+            "value": "",
+            "type": "input",
+            "note": "站点公告图片"
+        },
+        {
+            "name": "tips",
+            "label": "文章提示",
+            "group": "基本设置",
+            "value": "",
+            "type": "input",
+            "note": "文章内底部提示，可以用来输入一些版权信息"
+        },
+        {
+            "name": "backToTop",
+            "label": "返回顶部图片链接",
+            "group": "基本设置",
+            "value": "/media/images/lolisister.gif",
+            "type": "input",
+            "note": "返回顶部图片链接，如果不设置则不开启该功能，默认所有页面都开启"
+        },
+
+        {
+            "name": "copyNotice",
+            "label": "复制版权保护",
+            "group": "基本设置",
+            "value": "",
+            "type": "input",
+            "note": "留空为不开启，否则复制的时候会加上这段内容，不建议开启。"
+        },
+        {
+            "name": "background",
+            "label": "网站背景图片",
+            "group": "基本设置",
+            "value": "",
+            "type": "input",
+            "note": "请输入网站背景图片"
+        },
+        {
+            "name": "style",
+            "label": "列表样式",
+            "group": "基本设置",
+            "value": "default",
+            "type": "select",
+            "note": "选择需要列表的样式",
+            "options": [
+                {
+                    "label": "默认样式",
+                    "value": "default"
+                },
+                {
+                    "label": "普通样式",
+                    "value": "normal"
+                },
+                {
+                    "label": "混合样式",
+                    "value": "mix"
+                }
+            ]
+        },
+        {
+            "name": "feature",
+            "label": "默认封面图片",
+            "group": "封面图片",
+            "type": "array",
+            "value": [],
+            "arrayItems": [
+                {
+                    "label": "链接",
+                    "name": "autoimg",
+                    "type": "input",
+                    "value": ""
+                }
+            ],
+            "note": "请输入默认封面图片的链接"
+        },
+        {
+            "name": "featurelength",
+            "label": "用于随机的默认图片的数量",
+            "group": "封面图片",
+            "type": "input",
+            "value": "",
+            "note": "必须与默认封面图片同时指定，否则无效，注意，是数字"
+        },
+        {
+            "name": "randomImg",
+            "label": "是否随机图片",
+            "group": "封面图片",
+            "value": "",
+            "type": "input",
+            "note": "请输入随机图片API，优先级高于默认封面图片"
+        },
+        {
+            "name": "friends",
+            "label": "友链",
+            "group": "友链",
+            "type": "array",
+            "value": [],
+            "arrayItems": [
+                {
+                    "label": "名称",
+                    "name": "siteName",
+                    "type": "input",
+                    "value": ""
+                },
+                {
+                    "label": "链接",
+                    "name": "siteLink",
+                    "type": "input",
+                    "value": ""
+                },
+                {
+                    "label": "Logo",
+                    "name": "siteLogo",
+                    "type": "input",
+                    "value": ""
+                },
+                {
+                    "label": "描述",
+                    "name": "description",
+                    "type": "textarea",
+                    "value": ""
+                }
+            ],
+            "note": "添加友链页面为当前域名+/friends"
+        },
+        {
+            "name": "friendsnotice",
+            "label": "提示信息",
+            "group": "友链",
+            "value": "",
+            "type": "textarea",
+            "note": "友链页面的提示信息，不填写将不会显示。"
+        }
+    ]
+}
