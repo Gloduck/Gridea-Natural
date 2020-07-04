@@ -1,0 +1,32 @@
+<div class="post-container">
+    <% posts.forEach(function(post) { %>
+        <div class="post post-layout-list aos-init aos-animate shadow" data-aos="fade-up">
+            <div class="status_list_item icon_kyubo">
+                <% if (themeConfig.showFeatureImage && post.feature) { %>
+                    <div class="status_user" style="background-image: url(<%= post.feature %>);">
+    
+                    <% }else if(customConfig.randomImg){ %>
+                        <div class="status_user" style="background-image: url(<%= customConfig.randomImg %>?v=<%= Math.random() %>);">
+                    <% }else if(customConfig.feature && customConfig.featurelength){ %>
+                        <div class="status_user" style="background-image: url(<%= customConfig.feature[Math.floor(Math.random()*customConfig.featurelength)].autoimg %>);">
+                    <%} else { %>
+                        <div class="status_user" style="background-image: url(<%= themeConfig.domain %>/media/images/post-list.jpg);">
+                    <% } %> 
+                    <div class="status_section">
+                        <a href="<%= post.link %>" class="status_btn"><%= post.title %></a>
+                        <h5 class="review-item-creator"><b>发布日期：</b><%= post.dateFormat %></h5>
+                        <% post.tags.forEach(function(tag) { %>
+                            <a href="<%= tag.link %>" class="autotag"><%= tag.name %></a>
+                            <% }); %>
+                        <% if (post.abstract) {%>
+                            <p class="section_p"><%= post.abstract %></p>
+                            <%}else{ %>
+                                <p class="section_p"><%= post.content.replace(/<[^>]+>/g,"").substring(0,200)+'...' %></p>
+                            <%} %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% }); %>
+    
+</div>
