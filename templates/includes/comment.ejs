@@ -1,0 +1,21 @@
+<div id="panel" style="display: block;">
+    <div class="comment-area">
+      <section class="comments">
+        <div class="comments-main">
+          <% if (typeof commentSetting !== 'undefined' && commentSetting.showComment) { %>
+          <% if (commentSetting.commentPlatform === 'gitalk') { %>
+          <div id="gitalk-container"></div>
+          <%- include('./gitalk') %>
+          <% } %>
+          <% if (commentSetting.commentPlatform === 'disqus') { %>
+          <div id="disqus_thread"></div>
+          <%- include('./disqus') %>
+          <% } %>
+          <% } else if(site.customConfig.valineID && site.customConfig.valineKey) { %>
+          <div id="vcomments"></div>
+          <%- include('./valine') %>
+          <% } %>
+        </div>
+      </section>
+    </div>
+  </div>

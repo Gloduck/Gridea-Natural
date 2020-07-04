@@ -1,0 +1,22 @@
+<% if(site.customConfig.notice){ %>
+    <div class="post_content">
+        <div class="post-body">
+            <a href="" class="blog-card-title-link">
+                <div class="blog-card">
+                    <div class="blog-card-thumbnail">
+                        <% if(site.customConfig.noticeImg){ %>
+                            <img width="150" height="150" src="<%= site.customConfig.noticeImg %>" class="blog-card-thumb-image wp-post-image" alt="">
+                        <% } else { %>
+                            <img width="150" height="150" src="<%= themeConfig.domain %>/media/images/no-image.png" class="blog-card-thumb-image wp-post-image" alt="">
+                        <% } %>   
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="blog-card-title marker-under">公告</div>
+                        <div class="blog-card-excerpt"><%= site.customConfig.notice %> </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <hr>
+<% } %>  

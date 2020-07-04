@@ -1,0 +1,89 @@
+<% if (site.customConfig.background) { %>
+    <div class="Yarn_Background" style="background-image: url(<%= site.customConfig.background %>);"></div>
+    <% } else { %>
+        <div class="Yarn_Background" style="background-image: url( <%= themeConfig.domain %>/media/images/bg.jpg);"></div>
+    <% } %> 
+    <!-- 搜索开始 -->
+
+<div class="js-search search-form search-form--modal">
+    <div class="search-form__inner">
+        <div>
+            <div id="search-container" class="ajax_search">
+                <form method="get" id="gridea-search-form" action="<%= themeConfig.domain %>/search/">
+                    <div class="filter_container">
+                        <input type="text" value="" autocomplete="off" placeholder="请输入要搜索的内容" name="q" id="search-input" />
+                        <ul id="search_filtered" class="search_filtered"></ul>
+                    </div>
+                    <!-- <input type="submit" name="submit" id="searchsubmit" class="searchsubmit" value="" /> -->
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 搜索结束 -->
+<div class="navi" data-aos="fade-down">
+    <div class="bt-nav">
+        <div class="line line1"></div>
+        <div class="line line2"></div>
+        <div class="line line3"></div>
+    </div>
+    <div class="navbar animated fadeInRight">
+        <div class="inner">
+            <nav id="site-navigation" class="main-navigation">
+                <div id="main-menu" class="main-menu-container">
+                    <div class="menu-menu-container">
+                        <ul id="primary-menu" class="menu">
+                            <% menus.forEach(function(menu) { %>
+                                <% if (menu.openType === 'External') { %>
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                        <a href="<%= menu.link %>" target="_blank">
+                                            <%= menu.name %>
+                                        </a>
+                                    </li>
+                                    <% } else { %>
+                                        <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                            <a href="<%= menu.link %>">
+                                                <%= menu.name %>
+                                            </a>
+                                        </li>
+                                        <% } %>
+                                            <% }); %>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- #site-navigation -->
+        </div>
+    </div>
+</div>
+<div class="hebin" data-aos="fade-down">
+    <i class=" js-toggle-search fa fa-search"></i>
+</div>
+<header id="masthead" class="overlay animated from-bottom" itemprop="brand">
+    <div class="site-branding text-center">
+        <a href="">
+            <figure>
+                <img class="custom-logo avatar" src="<%= themeConfig.domain %>/images/avatar.png?v=<%= site.utils.now %>" />
+            </figure>
+        </a>
+        <h3 class="blog-description"><p><%= themeConfig.siteDescription %></p></h3>
+    </div>
+    <!-- .site-branding -->
+    <div class="decor-part">
+        <div id="particles-js"></div>
+    </div>
+    <div class="animation-header">
+        <div class="decor-wrapper">
+            <svg id="header-decor" class="decor bottom" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <path class="large left" d="M0 0 L50 50 L0 100" fill="rgba(255,255,255, .1)"></path>
+                <path class="large right" d="M100 0 L50 50 L100 100" fill="rgba(255,255,255, .1)"></path>
+                <path class="medium left" d="M0 100 L50 50 L0 33.3" fill="rgba(255,255,255, .3)"></path>
+                <path class="medium right" d="M100 100 L50 50 L100 33.3" fill="rgba(255,255,255, .3)"></path>
+                <path class="small left" d="M0 100 L50 50 L0 66.6" fill="rgba(255,255,255, .5)"></path>
+                <path class="small right" d="M100 100 L50 50 L100 66.6" fill="rgba(255,255,255, .5)"></path>
+                <path d="M0 99.9 L50 49.9 L100 99.9 L0 99.9" fill="rgba(255,255,255, 1)"></path>
+                <path d="M48 52 L50 49 L52 52 L48 52" fill="rgba(255,255,255, 1)"></path>
+            </svg>
+        </div>
+    </div>
+</header>

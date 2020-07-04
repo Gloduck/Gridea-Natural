@@ -1,0 +1,12 @@
+<script>
+    window.onload = function() {
+        var options = {
+            shortname: '<%= commentSetting.disqusSetting.shortname %>',
+            apikey: '<%= commentSetting.disqusSetting.apikey %>',
+        }
+        if ('<%= commentSetting.disqusSetting.api %>') {
+            options.api = '<%= commentSetting.disqusSetting.api %>'
+        }
+        var dsqjs = new DisqusJS(options)
+    }
+</script>
