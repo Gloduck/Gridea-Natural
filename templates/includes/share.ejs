@@ -1,0 +1,19 @@
+<script>
+    /* 分享代码 */
+    var feature = "<%= post.feature %>";
+    if(feature == ""){
+      feature = "<%= themeConfig.domain %>/favicon.ico";
+    }
+      $("#weiboShare").click(function(){
+        var url = "http://v.t.sina.com.cn/share/share.php?title=" + document.title + "&url=" + document.url + "&pic=" + feature;
+        window.open(url);
+      })
+      $("#qqShare").click(function () {
+        var url = "http://connect.qq.com/widget/shareqq/index.html?url="+ document.url + "&sharesource=qzone&title="+ document.title +"&pics="+feature;
+        window.open(url);
+        })
+        $("#qzoneShare").click(function () {
+          var url = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=" + document.url + "&sharesource=qzone&title="+ document.title +"&pics="+feature;
+          window.open(url);
+      })
+  </script>
