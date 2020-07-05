@@ -47,6 +47,13 @@
           <div class="meta split split--responsive cf">
             <div class="split__title">
               <time><%= post.dateFormat %></time>
+            <% if(site.customConfig.valineID && site.customConfig.valineKey) { %>
+              <% let domain = themeConfig.domain;%>
+              <span id="<%= post.link.replace(domain,'') %>" class="leancloud_visitors" data-flag-title="<%= post.title %>">
+                <em class="post-meta-item-text"> 阅读量 </em>
+                <i class="leancloud-visitors-count">0</i>
+            </span>
+              <% } %>
               <% post.tags.forEach(function(tag) { %>
               <a href="<%= tag.link %>" class="autotag">
                 #<%= tag.name %>
