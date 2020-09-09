@@ -727,16 +727,22 @@ figure {
 	margin: 0
 }
 
-table {
+/* table {
 	margin: 0 0 1.5em;
 	width: 100%
 }
 
 table {
-	box-shadow: 10px 10px 10px #b1b1b1;
+	// box-shadow: 10px 10px 10px #b1b1b1;
     border: 1px solid #b1b1b1;
     margin: 0 0 25px;
     width: 100%
+}
+
+thead{
+	border-collapse: separate;
+    border-spacing: 2px;
+	background-color: #FF9;
 }
 
 th {
@@ -752,8 +758,31 @@ td {
 	// border-top: 1px solid #eee;
 	border-bottom: 1px solid rgba(0,0,0,.42);
 	padding: 1rem .5rem
+} */
+table {
+	margin: 0 0 1.5em;
+	width: 90%;
+    font-family: verdana,arial,sans-serif;
+    font-size:11px;
+    color:#333333;
+    border-width: 1px;
+    border-color: #666666;
+    border-collapse: collapse;
 }
-
+table th {
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #666666;
+    background-color: #dedede;
+}
+table td {
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #666666;
+    background-color: #ffffff;
+}
 ol,
 ul {
 	list-style: none
@@ -1872,28 +1901,29 @@ input[type="search"]::-webkit-search-decoration {
 }
 
 .post-body h1 {
-	font-size: 20px;
+	font-size: 2em;
 	line-height: 40px
 }
 
 .post-body h2 {
-	font-size: 18px;
+	font-size: 1.5em;
 	line-height: 37px
 }
 
 .post-body h3 {
-	font-size: 16px;
+	font-size: 1.25em;
 	line-height: 34px;
 	display: table;
 }
 
 .post-body h4 {
-	font-size: 14px;
+	font-size: 1em;
 	line-height: 28px
 }
 
 .post-body h5,
 .post-body h6 {
+	font-size: .875em;
 	text-transform: uppercase
 }
 
@@ -1968,7 +1998,7 @@ input[type="search"]::-webkit-search-decoration {
 .post-body ul,
 .post-body ol {
 	font-size: 15px;
-	border: 1px solid #9c9c9c;
+	// border: 1px solid #9c9c9c;
 	padding: 5px 20px;
 	margin: 0 0 30px 0;
 	list-style: none;
@@ -1993,14 +2023,14 @@ input[type="search"]::-webkit-search-decoration {
 
 .post-body ul li~li,
 .post-body ol li~li {
-	border-top: 1px solid #c1c1c1
+	// border-top: 1px solid #c1c1c1
 }
 
 .post-body ul li:before {
 	color: #676464;
 	font-size: 11px;
 	font-size: 0.6875rem;
-	content: "\f01d";
+	content: "\f1ce";
 	font-family: FontAwesome
 }
 
@@ -2009,6 +2039,7 @@ input[type="search"]::-webkit-search-decoration {
 }
 
 .post-body ol li:before {
+	color: #676464;
 	content: counter(ol-counter) ".";
 	counter-increment: ol-counter
 }
@@ -2138,10 +2169,11 @@ input[type="search"]::-webkit-search-decoration {
 
 h1.post_title {
 	color: #918f90;
-	font-size: 25px;
+	font-size: 2.5em;
 	font-weight: 700;
 	margin-bottom: 25px;
-	text-transform: uppercase
+	text-transform: uppercase;
+	text-align: center;
 }
 
 #panel {
