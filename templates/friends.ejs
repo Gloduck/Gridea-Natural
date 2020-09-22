@@ -42,9 +42,15 @@
                                     <a href="<%= friend.siteLink %>"><img src="<%= friend.siteLogo %>"
                                             class="avatar photo" height="64" width="64"></a>
                                     <% } else { %>
+
+                                    <% if(site.customConfig.jsdelivrSwitch === "open" && site.customConfig.jsdelivrUsername && site.customConfig.jsdelivrRepo) {%>
+                                    <a href="<%= friend.siteLink %>"><img
+                                            src="https://cdn.jsdelivr.net/gh/<%= site.customConfig.jsdelivrUsername %>/<%= site.customConfig.jsdelivrRepo %>/media/images/no-image.png"
+                                            class="avatar photo" height="64" width="64"></a>
+                                    <% } else { %>
                                     <a href="<%= friend.siteLink %>"><img
                                             src="<%= themeConfig.domain %>/media/images/no-image.png"
-                                            class="avatar photo" height="64" width="64"></a>
+                                            class="avatar photo" height="64" width="64"></a> <% } %>
                                     <% } %>
                                     <div class="userItem-name">
                                         <a class="link link--primary" href="<%= friend.siteLink %>"
@@ -63,7 +69,7 @@
                     </div>
                 </div>
             </section>
-            <%- include('./includes/comment') %> 
+            <%- include('./includes/comment') %>
         </div>
     </div>
 
