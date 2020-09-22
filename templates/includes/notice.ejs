@@ -7,7 +7,12 @@
                         <% if(site.customConfig.noticeImg){ %>
                             <img width="150" height="150" src="<%= site.customConfig.noticeImg %>" class="blog-card-thumb-image wp-post-image" alt="">
                         <% } else { %>
-                            <img width="150" height="150" src="<%= themeConfig.domain %>/media/images/no-image.png" class="blog-card-thumb-image wp-post-image" alt="">
+
+                            <% if(site.customConfig.jsdelivrSwitch === "open" && site.customConfig.jsdelivrUsername && site.customConfig.jsdelivrRepo) {%>
+                                <img width="150" height="150" src="https://cdn.jsdelivr.net/gh/<%= site.customConfig.jsdelivrUsername %>/<%= site.customConfig.jsdelivrRepo %>/media/images/no-image.png" class="blog-card-thumb-image wp-post-image" alt="">
+                                <% } else { %>
+                                    <img width="150" height="150" src="<%= themeConfig.domain %>/media/images/no-image.png" class="blog-card-thumb-image wp-post-image" alt="">
+                                    <% } %>
                         <% } %>   
                     </div>
                     <div class="blog-card-content">

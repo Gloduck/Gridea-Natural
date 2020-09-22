@@ -1,11 +1,17 @@
-
 <% if(site.customConfig.backToTop){ %>
-    <div id="backToTop" style="display: block;">
-        <img src="https://moguos.oss-cn-shenzhen.aliyuncs.com/boxmoe/assets/images/top/lolisister1.gif">
-      </div>
+<div id="backToTop" style="display: block;">
+    <img src="https://moguos.oss-cn-shenzhen.aliyuncs.com/boxmoe/assets/images/top/lolisister1.gif">
+</div>
 <% } %>
 <%- include('./copy')%>
+
+<% if(site.customConfig.jsdelivrSwitch === "open" && site.customConfig.jsdelivrUsername && site.customConfig.jsdelivrRepo) {%>
+<script type='text/javascript'
+    src='https://cdn.jsdelivr.net/gh/<%= site.customConfig.jsdelivrUsername %>/<%= site.customConfig.jsdelivrRepo %>/media/js/particles.js'></script>
+<% } else { %>
 <script type='text/javascript' src='<%= themeConfig.domain %>/media/js/particles.js'></script>
+
+<% } %>
 <footer id="footer" class="overlay animated from-top">
     <div class="decor-wrapper">
         <svg id="footer-decor" class="decor top" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 100 100"
@@ -22,26 +28,32 @@
     </div>
     <div class="socialize" data-aos="zoom-in">
         <% if(site.customConfig.github){ %>
-            <a title="github" class="socialicon" href="<%= site.customConfig.github %> "><i class="fa fa-github" aria-hidden="true"></i></a>
-        <% } %>  
+        <a title="github" class="socialicon" href="<%= site.customConfig.github %> "><i class="fa fa-github"
+                aria-hidden="true"></i></a>
+        <% } %>
         <% if(site.customConfig.twitter){ %>
-            <a title="twitter" class="socialicon" href="<%= site.customConfig.twitter %> "><i class="fa fa-twitter" aria-hidden="true"></i></a>
-        <% } %>  
+        <a title="twitter" class="socialicon" href="<%= site.customConfig.twitter %> "><i class="fa fa-twitter"
+                aria-hidden="true"></i></a>
+        <% } %>
         <% if(site.customConfig.weibo){ %>
-            <a title="weibo" class="socialicon" href="<%= site.customConfig.weibo %> "><i class="fa fa-weibo" aria-hidden="true"></i></a>
-        <% } %>  
+        <a title="weibo" class="socialicon" href="<%= site.customConfig.weibo %> "><i class="fa fa-weibo"
+                aria-hidden="true"></i></a>
+        <% } %>
         <% if(site.customConfig.facebook){ %>
-            <a title="facebook" class="socialicon" href="<%= site.customConfig.facebook %> "><i class="fa fa-facebook" aria-hidden="true"></i></a>
-        <% } %>  
+        <a title="facebook" class="socialicon" href="<%= site.customConfig.facebook %> "><i class="fa fa-facebook"
+                aria-hidden="true"></i></a>
+        <% } %>
         <% if(site.customConfig.wechat){ %>
-            <a title="wechat" class="socialicon" href="<%= site.customConfig.wechat %> "><i class="fa fa-wechat" aria-hidden="true"></i></a>
-            <% if(site.customConfig.wechatImg){ %>
-                <div class="wechatimg"><img src="<%= site.customConfig.wechatImg %> "></div>
-            <% }%> 
-        <% } %>  
+        <a title="wechat" class="socialicon" href="<%= site.customConfig.wechat %> "><i class="fa fa-wechat"
+                aria-hidden="true"></i></a>
+        <% if(site.customConfig.wechatImg){ %>
+        <div class="wechatimg"><img src="<%= site.customConfig.wechatImg %> "></div>
+        <% }%>
+        <% } %>
         <% if(site.customConfig.qq){ %>
-            <a title="qq" class="socialicon" href="<%= site.customConfig.qq %> "><i class="fa fa-qq" aria-hidden="true"></i></a>
-        <% } %>  
+        <a title="qq" class="socialicon" href="<%= site.customConfig.qq %> "><i class="fa fa-qq"
+                aria-hidden="true"></i></a>
+        <% } %>
 
     </div>
     <div class="cr">

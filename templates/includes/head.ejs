@@ -5,6 +5,23 @@
 <title>
     <%= siteTitle %>
 </title>
+
+
+<% if(site.customConfig.jsdelivrSwitch === "open" && site.customConfig.jsdelivrUsername && site.customConfig.jsdelivrRepo) {%>
+    <!-- 开启了静态资源加速 -->
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/<%= site.customConfig.jsdelivrUsername %>/<%= site.customConfig.jsdelivrRepo %>/favicon.ico?v=<%= site.utils.now %>">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/<%= site.customConfig.jsdelivrUsername %>/<%= site.customConfig.jsdelivrRepo %>/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/<%= site.customConfig.jsdelivrUsername %>/<%= site.customConfig.jsdelivrRepo %>/media/css/prism.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/<%= site.customConfig.jsdelivrUsername %>/<%= site.customConfig.jsdelivrRepo %>/media/css/font-awesome.min.css">
+<script type='text/javascript' src='https://cdn.jsdelivr.net/gh/<%= site.customConfig.jsdelivrUsername %>/<%= site.customConfig.jsdelivrRepo %>/media/js/jquery.min.js'></script>
+<script type='text/javascript' src='https://cdn.jsdelivr.net/gh/<%= site.customConfig.jsdelivrUsername %>/<%= site.customConfig.jsdelivrRepo %>/media/js/plugins.js'></script>
+<script type='text/javascript' src='https://cdn.jsdelivr.net/gh/<%= site.customConfig.jsdelivrUsername %>/<%= site.customConfig.jsdelivrRepo %>/media/js/script.js'></script>
+<script type='text/javascript' src='https://cdn.jsdelivr.net/gh/<%= site.customConfig.jsdelivrUsername %>/<%= site.customConfig.jsdelivrRepo %>/media/js/aos.js'></script>
+<script type='text/javascript' src='https://cdn.jsdelivr.net/gh/<%= site.customConfig.jsdelivrUsername %>/<%= site.customConfig.jsdelivrRepo %>/media/js/prism.js'></script>
+
+
+<% } else { %>
+    <!-- 没开启静态资源加速 -->
 <link rel="shortcut icon" href="<%= themeConfig.domain %>/favicon.ico?v=<%= site.utils.now %>">
 <link rel="stylesheet" href="<%= themeConfig.domain %>/styles/main.css">
 <link rel="stylesheet" href="<%= themeConfig.domain %>/media/css/prism.css">
@@ -14,19 +31,24 @@
 <script type='text/javascript' src='<%= themeConfig.domain %>/media/js/script.js'></script>
 <script type='text/javascript' src='<%= themeConfig.domain %>/media/js/aos.js'></script>
 <script type='text/javascript' src='<%= themeConfig.domain %>/media/js/prism.js'></script>
+
+<% } %>
+<link rel="stylesheet" href="https://unpkg.com/autocjs@1.3.0/dist/autoc.min.css">
+<script type="text/javascript" src="https://unpkg.com/autocjs@1.3.0/dist/autoc.min.js"></script>
+
 <% if (typeof commentSetting !== 'undefined' && commentSetting.showComment) { %>
-    <% if (commentSetting.commentPlatform === 'gitalk') { %>
-    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-    <% } %>
-    <% if (commentSetting.commentPlatform === 'disqus') { %>
-    <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css">
-    <script src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
-    <% } %>
-    <% } %>
-    <% if(site.customConfig.valineID && site.customConfig.valineKey){ %> 
-        <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
-    <% } %> 
+<% if (commentSetting.commentPlatform === 'gitalk') { %>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<% } %>
+<% if (commentSetting.commentPlatform === 'disqus') { %>
+<link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css">
+<script src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
+<% } %>
+<% } %>
+<% if(site.customConfig.valineID && site.customConfig.valineKey){ %>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<% } %>
 
 
 <% if (site.customConfig.ga) { %>

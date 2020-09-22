@@ -1,7 +1,12 @@
 <% if (site.customConfig.background) { %>
     <div class="Yarn_Background" style="background-image: url(<%= site.customConfig.background %>);"></div>
     <% } else { %>
-        <div class="Yarn_Background" style="background-image: url( <%= themeConfig.domain %>/media/images/bg.jpg);"></div>
+        <% if(site.customConfig.jsdelivrSwitch === "open" && site.customConfig.jsdelivrUsername && site.customConfig.jsdelivrRepo) {%>
+            <!-- 开启了静态资源加速 -->
+        <div class="Yarn_Background" style="background-image: url( https://cdn.jsdelivr.net/gh/<%= site.customConfig.jsdelivrUsername %>/<%= site.customConfig.jsdelivrRepo %>/media/images/bg.jpg);"></div>
+        <% } else { %>
+            <div class="Yarn_Background" style="background-image: url( <%= themeConfig.domain %>/media/images/bg.jpg);"></div>
+        <% } %>
     <% } %> 
     <!-- 搜索开始 -->
 
@@ -63,7 +68,11 @@
     <div class="site-branding text-center">
         <a href="">
             <figure>
-                <img class="custom-logo avatar" src="<%= themeConfig.domain %>/images/avatar.png?v=<%= site.utils.now %>" />
+                <% if(site.customConfig.jsdelivrSwitch === "open" && site.customConfig.jsdelivrUsername && site.customConfig.jsdelivrRepo) {%>
+                <img class="custom-logo avatar" src="https://cdn.jsdelivr.net/gh/<%= site.customConfig.jsdelivrUsername %>/<%= site.customConfig.jsdelivrRepo %>/images/avatar.png?v=<%= site.utils.now %>" />
+                <% } else { %>
+                    <img class="custom-logo avatar" src="<%= themeConfig.domain %>/images/avatar.png?v=<%= site.utils.now %>" />
+                    <% } %>
             </figure>
         </a>
         <h3 class="blog-description"><p><%= themeConfig.siteDescription %></p></h3>
